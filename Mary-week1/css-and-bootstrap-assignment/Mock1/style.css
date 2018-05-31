@@ -1,0 +1,26 @@
+body {
+  position: relative;
+}
+
+button {
+  background-color: rgb(72, 126, 224);
+  color: aliceblue;
+  border: solid 2px;
+  border-radius: 10%;
+  width: 120px;
+  height: 80px;
+  transition: all 0.5s ease;
+  text-decoration: none;
+  position: absolute;
+  right: 50%;
+  top: 50%;
+}
+
+button:hover {
+  background-color: rgb(5, 47, 126);
+  cursor: pointer;
+}
+
+button:focus {
+  outline: 0;
+}
