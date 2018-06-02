@@ -40,15 +40,21 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function shuffle(array) {
-    var arrayCopy = array.slice();
+    // var arrayCopy = array.slice();
+    // ES6
+    var arrayCopy = [...array];
+
     for (var idx1 = arrayCopy.length - 1; idx1 > 0; idx1--) {
       // generate a random index between 0 and idx1 (inclusive)
       var idx2 = Math.floor(Math.random() * (idx1 + 1));
 
       // swap elements at idx1 and idx2
-      var temp = arrayCopy[idx1];
-      arrayCopy[idx1] = arrayCopy[idx2];
-      arrayCopy[idx2] = temp;
+      // var temp = arrayCopy[idx1];
+      // arrayCopy[idx1] = arrayCopy[idx2];
+      // arrayCopy[idx2] = temp;
+
+      // ES6
+      [arrayCopy[idx1], arrayCopy[idx2]] = [arrayCopy[idx2], arrayCopy[idx1]];
     }
     return arrayCopy;
   }
@@ -65,7 +71,9 @@ document.addEventListener('DOMContentLoaded', function() {
       var guess = e.target.innerText;
       var similarityScore = compareWords(guess, password);
       e.target.classList.add('disabled');
-      e.target.innerText = guess + ' --> Matching Letters: ' + similarityScore;
+      // e.target.innerText = guess + ' --> Matching Letters: ' + similarityScore;
+      // ES6
+      e.target.innerText = `${guess} --> Matching Letters: ${similarityScore}`;
       setGuessCount(guessCount - 1);
 
       // check whether the game is over
