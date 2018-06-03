@@ -11,20 +11,12 @@ $(function() {
     startGame();
   });
 
-  // function toggleClasses(element) {
-  //   // $(element).toggleClass($(arguments));
-  //   for (let i = 1; i < arguments.length; i++) {
-  //     $(element).toggleClass(arguments[i]);
-  //   }
-  // }
-
   function startGame() {
     // get random words and append them to the DOM
     var $wordList = $('#word-list');
     // 'words' variable is from words.js
     var randomWords = getRandomValues(words, wordCount); // eslint-disable-line no-undef
     randomWords.forEach(function(word) {
-      // var li = document.createElement('li');
       var $li = $('<li>', { text: word });
       $wordList.append($li);
     });
